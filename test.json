@@ -1,0 +1,67 @@
+[
+  {
+    "topic": "git",
+    "course": "essentials",
+    "lesson": "branching",
+    "author": "rosielowther",
+    "category": "must-know",
+    "question": "Synchronise your local branch with changes to the remote `test`:\n\n    $ git ??? ???\n",
+    "answers": [
+        {
+            "text": "`fetch`",
+            "correct": true,
+            "correctIndex": 0
+        },
+        {
+            "text": "`test`",
+            "correct": true,
+            "correctIndex": 1
+        },
+        {
+            "text": "`master`",
+            "correct": false,
+            "correctIndex": null
+        },
+        {
+            "text": "`origin`",
+            "correct": false,
+            "correctIndex": null
+        },
+        {
+            "text": "`merge`",
+            "correct": false,
+            "correctIndex": null
+        }
+    ]
+},
+{
+    "topic": "git",
+    "course": "essentials",
+    "lesson": "branching",
+    "author": "rosielowther",
+    "category": "must-know",
+    "question": "Complete the process to apply the changes to your local branch `master`:\n\n    $ git ??? origin\n    $ git ???\n",
+    "answers": [
+        {
+            "text": "`fetch`",
+            "correct": true,
+            "correctIndex": 0
+        },
+        {
+            "text": "`merge`",
+            "correct": true,
+            "correctIndex": 1
+        },
+        {
+            "text": "`commit`",
+            "correct": false,
+            "correctIndex": null
+        },
+        {
+            "text": "`master`",
+            "correct": false,
+            "correctIndex": null
+        }
+    ]
+}
+]

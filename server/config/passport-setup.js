@@ -12,12 +12,20 @@ passport.use(new GooglePassport({
 }, (accessToken, refreshToken, profile, done) => {
   // pasport callback kada dobijemo profil informacije
   // poziva se na router.get('/google/redirect', >>>passport.authenticate('google'),<<<
-  console.log(profile);
-  User.create({
-    gender: profile.gender,
-    firstName: profile.name.familyName,
-    lastName: profile.name.givenName,
-    provider: profile.provider,
-    googleId: profile.id
+  // console.log(profile);
+  // provjeri jel postoji user u database
+  User.findOne({googleId: profile.id}).then((currentUser) => {
+    if (currentUser) {
+      console.log(' VEC POSTOJI');
+    } else {
+      // napravimo novog
+      User.create({
+        gender: profile.gender,
+        firstName: profile.name.familyName,
+        lastName: profile.name.givenName,
+        provider: profile.provider,
+        googleId: profile.id
+      });
+    }
   });
 }));

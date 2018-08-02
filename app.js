@@ -2,8 +2,9 @@ const express = require('express');
 const app = express();
 const authRouthes = require('./routes/auth-routes');
 const Sequelize = require('sequelize');
-const keys = require('./config/keys');
-const passportSetup = require('./config/passport-setup');
+const keys = require('./server/config/keys');
+// const path = require('path');
+const passportSetup = require('./server/config/passport-setup');
 // ^kod koji pokrece skriptu passport-setup prilikom startanja aplikacije
 
 const sequelize = new Sequelize('nikolovska', 'postgres', keys.postgreSQL.password, {
@@ -39,4 +40,4 @@ app.get('/', (req, res) => {
 app.listen(3000, () => {
   console.log('app now listening for requests on port 3000');
 });
-console.log(passportSetup);
+console.log(passportSetup);// bezveze da ne pise da se ne koristi

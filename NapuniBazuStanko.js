@@ -1,7 +1,7 @@
 const fs = require('fs');
-const User = require('./models/user');
-const Quiz = require('./models/quiz');
-const Question = require('./models/questions');
+const User = require('./server/models/user');
+const Quiz = require('./server/models/quiz');
+const Question = require('./server/models/questions');
 // INICIJALNO PUNJENJE
 
 User.sync({ force: true }).then(() => {
@@ -34,7 +34,7 @@ Quiz.sync({ force: true }).then(() => {
   });
 });
 Question.sync({ force: true }).then(() => {
-  const questions = JSON.parse(fs.readFileSync('test.json', 'utf8'));
+  const questions = JSON.parse(fs.readFileSync('questions.json', 'utf8'));
   questions.forEach(question => {
     Question.create({
       topic: question.topic,
@@ -44,3 +44,4 @@ Question.sync({ force: true }).then(() => {
     });
   });
 });
+// ima 1514 pitanja

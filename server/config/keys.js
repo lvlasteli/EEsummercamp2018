@@ -6,5 +6,8 @@ module.exports = {
   },
   postgreSQL: {
     password: 'axeq627a'
+  },
+  session: {
+    cookiekey: 'enkriptiraj'
   }
 };

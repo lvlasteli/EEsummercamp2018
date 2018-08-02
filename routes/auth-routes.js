@@ -14,7 +14,7 @@ router.get('/google', passport.authenticate('google', {
 
 // callback nakon uspjesne autentikacije
 router.get('/google/redirect', passport.authenticate('google'), (req, res) => {
-  res.send('WOOOHOOOO');
+  res.send(req.user);
 });
 
 // auth Loggout

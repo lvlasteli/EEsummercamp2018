@@ -42,7 +42,13 @@ const User = sequelize.define('user', {
     type: Sequelize.STRING,
     allowNull: true,
     defaultValue: null
+  },
+  thumbnail: {
+    type: Sequelize.STRING,
+    allowNull: true,
+    defaultValue: null
   }
+
 });
 // User.hasMany(Quiz);
 module.exports = User;

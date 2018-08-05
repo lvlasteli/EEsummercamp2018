@@ -42,16 +42,20 @@
         <nav>
             <ul>
                 <li><a href="/">Homepage</a></li>
+                <% if (user) { %>
+                <li><a href="/profile">Profile</a></li>
                 <li><a href="/auth/logout">Logout</a></li>
+                <% } else { %>
                 <li><a href="/auth/login">Login</a></li>
+                <% } %>
             </ul>
         </nav>
         <header>
-            <h1>Naslov</h1>
+            <h1>Test your Knowledge</h1>
             <h2>Homepage</h2>
         </header>
         <main>
-            <p>Najbolji projekt evah</p>
+            <p>Best project evah</p>
         </main>
     </body>
 </html>

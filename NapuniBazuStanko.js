@@ -2,7 +2,6 @@ const fs = require('fs');
 const User = require('./server/models/user');
 const Quiz = require('./server/models/quiz');
 const Question = require('./server/models/questions');
-// INICIJALNO PUNJENJE
 
 User.sync({ force: true }).then(() => {
   User.create({

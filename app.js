@@ -1,12 +1,12 @@
 const express = require('express');
 const passport = require('passport');
 const authRouthes = require('./routes/auth-routes');
+const profileRoutes = require('./routes/profile-routes');
 const Sequelize = require('sequelize');
 const keys = require('./server/config/keys');
 // const path = require('path');
 const cookieSession = require('cookie-session');
 const passportSetup = require('./server/config/passport-setup');
-// ^kod koji pokrece skriptu passport-setup prilikom startanja aplikacije
 
 const app = express();
 
@@ -14,7 +14,7 @@ const app = express();
 app.set('view engine', 'ejs');
 
 app.use(cookieSession({
-  maxAge: 24 * 60 * 60 * 1000, // zelimo da cookie traje 1dan=h*m*s*ms
+  maxAge: 24 * 60 * 60 * 1000, // cookie lasts 1day=h*m*s*ms
   keys: [keys.session.cookiekey]
 }));
 app.use(passport.initialize());
@@ -39,18 +39,16 @@ sequelize
   .catch(err => {
     console.error('Unable to connect to the database:', err);
   });
-
-// routes kad budemo koristili google pisat ce /auth/google
+// routes -> /auth/google and  /profile
 app.use('/auth', authRouthes);
+app.use('/profile', profileRoutes);
+
 // Create home page
 app.get('/', (req, res) => {
-  res.render('home');
+  res.render('home', {user: req.user});
 });
 
 app.listen(3000, () => {
   console.log('app now listening for requests on port 3000');
 });
-console.log(passportSetup);// bezveze da ne pise da se ne koristi
-
-// ako javlja error za listening porta netstat -vanp tcp | grep 3000
-// kill -9 <pid>
+console.log(passportSetup);

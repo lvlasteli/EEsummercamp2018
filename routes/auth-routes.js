@@ -3,22 +3,24 @@ const passport = require('passport');
 
 // auth Login
 router.get('/login', (req, res) => {
-  res.render('login');
+  res.render('login', {user: req.user});
 });
-
-// Autentikacija s googleom
-router.get('/google', passport.authenticate('google', {
-  scope: ['profile'] // zelim inf od profila od google+
-}));
-// google ode pokrece GooglePassport i otvara predlozak
-
-// callback nakon uspjesne autentikacije
-router.get('/google/redirect', passport.authenticate('google'), (req, res) => {
-  res.send(req.user);
-});
-
 // auth Loggout
 router.get('/logout', (req, res) => {
-  res.send('logging out');
+  // res.send('logging out');
+  req.logout();
+  res.redirect('/');
 });
-module.exports = router; // exportamo ga da ga mozemo koristi u app.js
+
+// Google auth
+router.get('/google', passport.authenticate('google', {
+  scope: ['profile'] // getting inf from google+
+}));
+
+// callback after successfull callback
+router.get('/google/redirect', passport.authenticate('google'), (req, res) => {
+  // res.send(req.user);
+  res.redirect('/profile');
+});
+
+module.exports = router;

@@ -1,7 +1,7 @@
 const express = require('express');
 const passport = require('passport');
-const authRouthes = require('./routes/auth-routes');
-const profileRoutes = require('./routes/profile-routes');
+const authRouthes = require('./server/routes/auth-routes');
+const profileRoutes = require('./server/routes/profile-routes');
 const Sequelize = require('sequelize');
 const keys = require('./server/config/keys');
 // const path = require('path');

@@ -1,5 +1,6 @@
 const Sequelize = require('sequelize');
 const keys = require('../config/keys');
+// const Quiz = require('./quiz');
 
 const sequelize = new Sequelize('nikolovska', 'postgres', keys.postgreSQL.password, {
   host: 'localhost',

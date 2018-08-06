@@ -14,12 +14,17 @@ const sequelize = new Sequelize('nikolovska', 'postgres', keys.postgreSQL.passwo
   }
 });
 const Quiz = sequelize.define('quiz', {
-  pickedQuestions: {
+  questions: {
     type: Sequelize.ARRAY(Sequelize.INTEGER),
     allowNull: true,
     defaultValue: null
   },
-  wronglyAnswered: {
+  correctQuestions: {
+    type: Sequelize.ARRAY(Sequelize.INTEGER),
+    allowNull: true,
+    defaultValue: null
+  },
+  wrongQuestions: {
     type: Sequelize.ARRAY(Sequelize.INTEGER),
     allowNull: true,
     defaultValue: null

@@ -1,8 +1,8 @@
 const getRandomQ = require('./get10RandomQuestions');
 
-async function plsWork() {
-  let something = [];
-  something = await getRandomQ;
-  console.log('It sould be array.....' + something);
+async function getJsonArrayOfQuestions() {
+  let pickedQuestions = [];
+  pickedQuestions = await getRandomQ;
+  console.log(pickedQuestions);
 }
-plsWork();
+getJsonArrayOfQuestions();

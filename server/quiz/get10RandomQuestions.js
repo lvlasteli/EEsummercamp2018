@@ -13,11 +13,10 @@ function getRandomQuestions() {
         randIDs.push(broj);
       }
     }
-    console.log('----------chosen array of random numbers--------');
-    console.log(randIDs);
+    // console.log('----------chosen array of random numbers--------');
+    // console.log(randIDs);
     const randQuestions = [];
     let i = 0;
-    // return Question.findAll()
     Question.findAll({
       where: { id: randIDs }
     }).then((result) => {
@@ -30,8 +29,8 @@ function getRandomQuestions() {
         };
         randQuestions.push(dataOfQuestions);
       }
-      console.log('----------Choosen Question------------');
-      console.log(randQuestions);
+      // console.log('----------Choosen Question------------');
+      // console.log(randQuestions);
       database.close();
       return randQuestions;
     });

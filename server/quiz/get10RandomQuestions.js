@@ -1,6 +1,5 @@
 const Question = require('../question/question.model');
 const randomInt = require('random-int');
-const database = require('../database');
 
 function getRandomQuestions() {
   // user will choose
@@ -24,14 +23,13 @@ function getRandomQuestions() {
         const dataOfQuestions = {
           questionId: result[i].id,
           question: result[i].question,
-          correct: null,
-          answers: result[i].answers
+          answers: result[i].answers,
+          correct: false
         };
         randQuestions.push(dataOfQuestions);
       }
       // console.log('----------Choosen Question------------');
       // console.log(randQuestions);
-      database.close();
       return randQuestions;
     });
   });

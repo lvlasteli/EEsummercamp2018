@@ -1,5 +1,5 @@
 const Question = require('../question/question.model');
-const Quiz = require ('./quiz.model');
+const Quiz = require('./quiz.model');
 const randomInt = require('random-int');
 
 function get10RandomIds() {
@@ -27,12 +27,7 @@ async function saveQuiz(userID) {
     userId: userID
   }).then((insertedId) => {
     console.log(insertedId.id);
-    insertQuestions(randomIds,insertedId.id);
   });
-}
-
-function insertQuestions(arrayIds, id) {
-
 }
 
 saveQuiz(1);

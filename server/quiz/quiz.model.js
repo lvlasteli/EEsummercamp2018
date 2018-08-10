@@ -24,4 +24,5 @@ const QuizQuestions = database.define('quizQuestions', {
 Question.belongsToMany(Quiz, {through: QuizQuestions});
 Quiz.belongsToMany(Question, {through: QuizQuestions});
 
-module.exports = Quiz;
+module.exports = { Quiz,
+  QuizQuestions };

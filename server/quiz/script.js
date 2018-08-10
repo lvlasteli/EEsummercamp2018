@@ -1,6 +1,9 @@
 const Question = require('../question/question.model');
-const Quiz = require('./quiz.model');
+const QuizAndQuizQuestions = require('./quiz.model');
 const randomInt = require('random-int');
+
+const quiz = QuizAndQuizQuestions.Quiz; // exported Quiz
+const quizQuestions = QuizAndQuizQuestions.QuizQuestions; //  exported QuizQuestions
 
 function get10RandomIds() {
   const chosenNumberOfQuestions = 10;
@@ -14,20 +17,33 @@ function get10RandomIds() {
     }
     return randIDs;
   });
-}
+} // returns array.length=10 of random integers
 
 async function saveQuiz(userID) {
   let randomIds = [];
   randomIds = await get10RandomIds();
   console.log(randomIds);
-  Quiz.create({
+  quiz.create({
     percentage: null,
     timestamp: null,
     elapsedTime: null,
     userId: userID
+    // quizQuestions: [
+    //   {
+    //     correct: null,
+    //     answers: null,
+    //     questionId: randomIds[0]
+    //   }]
   }).then((insertedId) => {
     console.log(insertedId.id);
+    randomIds.forEach(element => {
+      quizQuestions.create({
+        quizId: insertedId.id,
+        questionId: element,
+        correct: null,
+        answers: null
+      });
+    });
   });
 }
-
 saveQuiz(1);

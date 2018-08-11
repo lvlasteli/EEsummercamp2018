@@ -18,9 +18,9 @@ export default {
   data() {
     return {
       msg: 'Test Your Knowledge'
-    }
+    };
   }
-}
+};
 </script>
 
 <style>

@@ -1,10 +1,8 @@
 <template>
-  <div id="wrapper">
+  <div class="login-container">
     <h1>{{ appTitle }}</h1>
-    <br>
-    <h2>To continue using this app please log in</h2>
-    <br>
-    <div id="button-container">
+    <h2 class="info">To continue using this app please log in</h2>
+    <div class="button-container">
       <button>Login<img src="../assets/google_plus.png" align="right"></button>
     </div>
   </div>
@@ -21,25 +19,23 @@ export default {
 };
 </script>
 
-<style>
-
-#wrapper {
-  padding-top: 200px;
+<style scoped>
+.login-container {
+  margin-top: 200px;
 }
-
-#button-container {
+.info {
+  margin: 50px 0 30px 0
+}
+.button-container {
   margin: 0 auto;
   width: 240px;
 }
-
 button{
   background: #F2F2F2;
   padding: 20px;
   width: 70%;
   font-size: 25px;
-  border-image-source: none;
 }
-
 img{
   display: block;
   max-width: 35px;
@@ -47,5 +43,4 @@ img{
   width: auto;
   height: auto;
 }
-
 </style>

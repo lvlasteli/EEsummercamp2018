@@ -7,7 +7,6 @@
     <br> <br>
     <div class="button-container">
       <button>Login<img width="50" height="50" src="./assets/google_plus.png" align="right"> </button>
-
     </div>
   </div>
 </template>

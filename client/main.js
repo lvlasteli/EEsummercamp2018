@@ -1,16 +1,25 @@
 import Vue from 'vue';
-import App from './App.vue';
-import VueRouter from 'vue-router';
+import Router from 'vue-router';
+import BootstrapVue from 'bootstrap-vue';
 
-Vue.use(VueRouter);
-let routes;
-
-const router = new VueRouter({
-  routes,
-  mode: 'history'
-});
+import App from './App';
+// import Progress from './components/Progress';
 
 Vue.config.productionTip = false;
+
+Vue.use(Router);
+Vue.use(BootstrapVue);
+
+const router = new Router({
+  mode: 'history',
+  routes: [
+    {
+      path: '/',
+      name: 'app',
+      component: App
+    }
+  ]
+});
 
 new Vue({
   el: '#app',
@@ -19,3 +28,5 @@ new Vue({
   components: { App },
   router
 }).$mount('#app');
+
+export default router;

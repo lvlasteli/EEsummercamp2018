@@ -15,7 +15,6 @@
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
-    <h2>Chosen path: {{ chosenPath }}</h2>
   </div>
 </template>
 
@@ -24,16 +23,16 @@ export default {
   data() {
     return {
       options: [
-        { title: 'Home', icon: 'home', url: '/' },
-        { title: 'Quiz', icon: 'chat', url: '/quiz' },
-        { title: 'History', icon: 'info', url: '/history' }
+        { title: 'Home', icon: 'home', url: 'home' },
+        { title: 'Quiz', icon: 'chat', url: 'quiz' },
+        { title: 'History', icon: 'info', url: 'history' }
       ],
       chosenPath: ''
     };
   },
   methods: {
     takeUs(clickedItem) {
-      return (this.chosenPath = clickedItem.url);
+      this.$router.replace({name: clickedItem.url});
     }
   }
 };
